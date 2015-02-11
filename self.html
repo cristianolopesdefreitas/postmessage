@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Self</title>
+    <script>
+        setInterval(function() {
+            var height = Math.ceil( Math.random() * 1000 ),
+                width = Math.ceil( Math.random() * 1000 ),
+                param = height + 'x' + width;
+            
+            window.parent.postMessage( param, 'http://localhost/postmessage/self.html' );
+        }, 1000 );
+    </script>
+</head>
+<body>
+    <h1>SELF</h1>
+</body>
+</html>

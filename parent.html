@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Parent</title>
+    <script>
+        var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent',
+            eventMessage = eventMethod === 'attachEvent' ? 'onmessage' : 'message',
+            eventListener = window[ eventMethod ];
+
+        eventListener( eventMessage, function( e ) {
+            var size = e.data.split( 'x' );
+            
+            console.log( e );
+            
+            var page = document.getElementById( 'page' );
+            
+            page.height = size[ 0 ];
+            page.width = size [ 1 ];
+        }, false );
+    </script>
+</head>
+<body>
+    <iframe src="self.html" id="page"></iframe>
+</body>
+</html>
